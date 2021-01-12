@@ -2,6 +2,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const morgan = require('morgan');
 const router = require('./router');
+const cors = require('cors');
 const app = express();
 // const mongoose = require('mongoose');
 var mongoose = require('mongoose');
@@ -18,6 +19,7 @@ db.on('error', console.error.bind(console, 'MongoDB connection error:'));
 
 //App Setup
 app.use(morgan('combined'));
+app.use(cors());
 app.use(bodyParser.json());
 
 //Server Setup
