@@ -11,33 +11,41 @@ class Signup extends Component {
             this.props.history.push('/feature');
         });
     }
+    showError(_this) {
+        if (_this.props.errorMessage !== undefined) {
+            return <div className="error warning-msg">
+                <i className="fa fa-warning"></i>
+                {_this.props.errorMessage}
+            </div>
+        }
+    }
     render() {
         const { handleSubmit } = this.props;
 
         return (
             <form onSubmit={handleSubmit(this.onSubmit)}>
-                <fieldset>
-                    <label> Email</label>
-                    <Field
-                        name="email"
-                        type="text"
-                        component="input"
-                        autoComplete="none"
-                    />
-                </fieldset>
-                <fieldset>
-                    <label> Password</label>
-                    <Field
-                        name="password"
-                        type="password"
-                        component="input"
-                        autoComplete="none"
-                    />
-                </fieldset>
-                <div>
-                    {this.props.errorMessage}
-                </div>
+                <div className="formfeild">
+                    <fieldset>
+                        <label> Email</label>
+                        <Field
+                            name="email"
+                            type="text"
+                            component="input"
+                            autoComplete="none"
+                        />
+                    </fieldset>
+                    <fieldset>
+                        <label> Password</label>
+                        <Field
+                            name="password"
+                            type="password"
+                            component="input"
+                            autoComplete="none"
+                        />
+                    </fieldset>
                 <button>Sign Up </button>
+                </div>
+                {this.showError(this)}
             </form>
         )
     }

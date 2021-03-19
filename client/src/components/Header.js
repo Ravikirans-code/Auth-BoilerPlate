@@ -16,15 +16,15 @@ class Header extends Component {
         } else {
             return (
                 <div>
-                    <Link to="/signup">Sign Up</Link>
-                    <Link to="/signin">Sign In</Link>
+                    <Link to="/signup" className="">Sign Up</Link>
+                    <Link to="/signin" className="">Sign In</Link>
                 </div>
             )
         }
     }
     render() {
         return (
-            <div className="header">
+            <div className="topnav">
                 <Link to="/">Redux Auth</Link>
                 {this.renderLinks()}
             </div>

@@ -18,6 +18,10 @@ var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'MongoDB connection error:'));
 
 //App Setup
+app.use(function (req, res, next) {
+    console.log('Time: %d', Date.now())
+    next()
+})
 app.use(morgan('combined'));
 app.use(cors());
 app.use(bodyParser.json());
@@ -29,3 +33,4 @@ router(app);
 app.listen(port, () => {
     console.log(`Example app listening at http://localhost:${port}`)
 })
+
